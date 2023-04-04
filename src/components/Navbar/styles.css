@@ -1,0 +1,38 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    background-color: #233666;
+    color: rgb(205, 205, 205);
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.main-nav{
+    margin-right: 60px;
+    text-align: center;
+}
+
+.main-nav li{
+    margin: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-size: large;
+    text-align: center;
+}
+
+.logo img{
+    border-radius: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 70px;
+    margin-left: 50px;
+}

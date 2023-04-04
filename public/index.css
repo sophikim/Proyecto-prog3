@@ -8,12 +8,13 @@ li{
 ul{
     padding: 0;
 }
-a {
+h2 {
     text-decoration: none;
     color: #000;
+    text-align: center;
 }
 body {
-    font-family: Nunito;
+    font-family: nunito;
     margin: 0;
     background-color: rgb(232, 232, 232);
 }
@@ -25,7 +26,7 @@ nav{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 20px;
+    
     background-color: #233666;
     color: rgb(205, 205, 205);
 }
@@ -36,21 +37,82 @@ nav ul{
     flex-wrap: wrap;
     align-items: center;
 }
+.main-nav{
+    margin-right: 60px;
+    text-align: center;
+}
 
-.main-nav li,
-.logo li{
+.main-nav li{
     margin: 0 10px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: center;
+    font-size: large;
+    text-align: center;
 }
 
 .logo img{
-    width: 5%;
     border-radius: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 70px;
     margin-left: 10px;
 }
+
+/* Peliculas */
+
+.peliculas-general{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: rgb(0, 0, 0);
+}
+
+.peliculas-general article{
+    margin-bottom: 20px;
+}
+
+.pelicula-card{
+    width: 32%;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 30px;
+    text-transform: capitalize;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Series */
+
+.series-general{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: rgb(0, 0, 0);
+}
+
+.series-general article{
+    margin-bottom: 20px;
+}
+.serie-card{
+    width: 32%;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 10px 30px;
+    text-transform: capitalize;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
 
 /* Footer */
 .footer{
@@ -58,7 +120,7 @@ nav ul{
     padding: 40px 0;
     color: rgb(205, 205, 205);
     text-align: center;
-    position: absolute;
+    position: inherit;
     bottom: 0;
     width: 100%;
 
