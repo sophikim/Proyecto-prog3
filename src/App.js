@@ -4,6 +4,9 @@ import Footer from './components/Footer/Footer'
 import ContenedorPeliculasPop from './components/ContenedorPeliculasPop/ContenedorPeliculasPop';
 import ContenedorSeries from './components/ContenedorSeries/ContenedorSeries';
 import Buscador from './screens/Buscador/Buscador';
+
+//import DetallesPeli from './screens/DetallesPeli/DetallesPeli';
+//import DetallesSerie from './screens/DetallesSerie/DetallesSerie';
 import {Route, Switch} from 'react-router-dom'
 
 function App() {
