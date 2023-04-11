@@ -1,10 +1,11 @@
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer'
-import ContenedorPeliculasPop from './components/ContenedorPeliculasPop/ContenedorPeliculasPop';
-import ContenedorSeries from './components/ContenedorSeries/ContenedorSeries';
+//import ContenedorPeliculasPop from './components/ContenedorPeliculasPop/ContenedorPeliculasPop';
+//import ContenedorSeries from './components/ContenedorSeries/ContenedorSeries';
 import Buscador from './screens/Buscador/Buscador';
 import {Route, Switch} from 'react-router-dom'
+import Home from './screens/Home/Home'
 
 function App() {
   return (
@@ -12,12 +13,7 @@ function App() {
       <Navbar/>
         <Switch>
           <Route path='/buscador' exact={true} component={Buscador}/>
-        <main>
-          <h2>PELICULAS POPULARES</h2>
-          <ContenedorPeliculasPop/>
-          <h2>SERIES</h2>
-          <ContenedorSeries/>
-        </main>
+          <Route path='/' exact={true} component={Home}/>
         </Switch>
       <Footer/>
 

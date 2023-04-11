@@ -1,21 +1,36 @@
-import React from 'react';
-import PeliculasPop from '../PeliculasPop/PeliculasPop';
+import React, {Component} from 'react';
+import PeliculasPop from '../PeliculasPop/PeliculasPop'
 
-function ContenedorPeliculasPop(){
+class ContenedorPeliculasPop extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+            titulo: [],
+        }
+    }
+
+componentDidMount(){
+    fetch('https://api.themoviedb.org/3/movie/popular?api_key=7f5386f01dbfdcd8cd1afd5b805e09fc')
+    .then(res => res.json())
+    .then(data => this.setState({
+        titulo: data.results
+    }))
+    .catch(err => console.log('Esta en este error'))
+}
+
+render(){
     return(
-        <section className='peliculas-general'>
-            <PeliculasPop titulo='AAA' descripcion='alanglsnskankslanfksa'/>
-            <PeliculasPop titulo='SSS' descripcion='alanglsnskankslanfksa'/>
-            <PeliculasPop titulo='DDD' descripcion='alanglsnskankslanfksa'/>
-            <PeliculasPop titulo='FFF' descripcion='alanglsnskankslanfksa'/>
-            <PeliculasPop titulo='GGG' descripcion='alanglsnskankslanfksa'/>
-            <PeliculasPop titulo='HHH' descripcion='alanglsnskankslanfksa'/>
-            <PeliculasPop titulo='JJJ' descripcion='alanglsnskankslanfksa'/>
-            <PeliculasPop titulo='KKK' descripcion='alanglsnskankslanfksa'/>
-            <PeliculasPop titulo='LLL' descripcion='alanglsnskankslanfksa'/>
-        </section>
-
+        <div>
+            {
+                this.state.titulo.length <= 0 ?
+                    <h2>Trayendo peliculas...</h2> :
+                    this.state.titulo.map(titulo => <article>
+                         <PeliculasPop info={titulo} />
+                    </article>)
+                }
+        </div>
     )
+}
 }
 
 export default ContenedorPeliculasPop;
