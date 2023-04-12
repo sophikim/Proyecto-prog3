@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PeliculasPop from '../PeliculasPop/PeliculasPop'
 
 class ContenedorPeliculasPop extends Component{
     constructor(props){
@@ -24,9 +25,7 @@ render(){
                     this.state.peliculas.length <= 0 ?
                     <h2>Trayendo peliculas...</h2> :
                     this.state.peliculas.map(titulo => <article>
-                        {titulo.original_title}
-                        <br></br>
-                        {titulo.poster_path}
+                        <PeliculasPop info={titulo} />
                     </article>)
                 }
         </div>

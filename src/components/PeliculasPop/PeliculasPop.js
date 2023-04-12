@@ -1,20 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { Link } from 'react-router-dom'
 
-function PeliculasPop(props){
-    return(
-       <article className='pelicula-card'>
+class PeliculasPop extends Component {
+    constructor(props){
+        super(props)
+    }
+
+    anhadirFav(id){
+        let storage = localStorage.getItem('favoritos')
+        
+    }
+
+    render(){
+        return(
             <div>
-                <p>{props.original_title}</p>
-                <p>{props.descripcion}</p>
+            <Link to={`/unpersonaje/id/${this.props.info.id}`}>
+              <img src={this.props.info.poster_path}/>
+              <h1>{this.props.info.original_title}</h1>
+            </Link>
+            <button onClic={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favs</button>
             </div>
-            <div>
-                <button>Ver mas</button>
-                <button>Ir a detalle</button>
-                <button>Agregar a favoritos</button>
-            </div>
-        </article>
-    )
+        )
+    }
 }
 
-export default PeliculasPop
 
+export default PeliculasPop
