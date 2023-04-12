@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import PeliculasPop from '../PeliculasPop/PeliculasPop'
 
 class ContenedorPeliculasPop extends Component{
     constructor(props){
         super(props)
         this.state={
-            titulo: [],
+            peliculas: [],
         }
     }
 
@@ -13,7 +12,7 @@ componentDidMount(){
     fetch('https://api.themoviedb.org/3/movie/popular?api_key=7f5386f01dbfdcd8cd1afd5b805e09fc')
     .then(res => res.json())
     .then(data => this.setState({
-        titulo: data.results
+        peliculas: data.results
     }))
     .catch(err => console.log('Esta en este error'))
 }
@@ -21,11 +20,13 @@ componentDidMount(){
 render(){
     return(
         <div>
-            {
-                this.state.titulo.length <= 0 ?
+                {
+                    this.state.peliculas.length <= 0 ?
                     <h2>Trayendo peliculas...</h2> :
-                    this.state.titulo.map(titulo => <article>
-                         <PeliculasPop info={titulo} />
+                    this.state.peliculas.map(titulo => <article>
+                        {titulo.original_title}
+                        <br></br>
+                        {titulo.poster_path}
                     </article>)
                 }
         </div>
