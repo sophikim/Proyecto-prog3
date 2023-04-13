@@ -1,14 +1,15 @@
 import React from 'react';
+import {Route, Switch} from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer'
 //import ContenedorPeliculasPop from './components/ContenedorPeliculasPop/ContenedorPeliculasPop';
 //import ContenedorSeries from './components/ContenedorSeries/ContenedorSeries';
-import Buscador from './screens/Buscador/Buscador';
+import Home from './screens/Home/Home'
+import PagBuscador from './screens/PagBuscador/PagBuscador';
 
 //import DetallesPeli from './screens/DetallesPeli/DetallesPeli';
 //import DetallesSerie from './screens/DetallesSerie/DetallesSerie';
-import {Route, Switch} from 'react-router-dom'
-import Home from './screens/Home/Home'
+
 //import PeliculasPop from './components/PeliculasPop/PeliculasPop';
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
     <>
       <Navbar/>
         <Switch>
-          <Route path='/buscador' exact={true} component={Buscador}/>
           <Route path='/' exact={true} component={Home}/>
+          <Route path='/pagbuscador' exact={true} component={PagBuscador}/>
+
         </Switch>
       <Footer/>
     </>

@@ -36,7 +36,7 @@ export default class DetallePeli extends Component {
         this.state.peli === '' ?
         <h1>Cargando..</h1> :
         <div>
-            <img src={this.state.peli.logo_path} />
+            <img src={this.state.peli.logo_path} alt=''/>
             <h1>{this.state.peli.name}</h1>
             <p>{this.state.peli.overview}</p>
             <p>{this.state.peli.release_date}</p>

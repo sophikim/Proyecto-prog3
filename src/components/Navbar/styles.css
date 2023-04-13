@@ -1,3 +1,9 @@
+a{
+    color: rgb(205, 205, 205);
+    text-decoration: none;
+
+}
+
 nav{
     display: flex;
     flex-direction: row;

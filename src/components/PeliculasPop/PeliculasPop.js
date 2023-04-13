@@ -1,70 +1,94 @@
 import React, {Component} from 'react';
-import ContenedorPeliculasPop from '../ContenedorPeliculasPop/ContenedorPeliculasPop';
+import { Link } from 'react-router-dom';
 
-const peliculas=[
-    {
-        url:'./img/ahsoka.jpg',
-        nombre:'Ahsoka',
-        descripcion: 'Heroe copado'
-    },
-    {
-        url:'./img/anakin.jpg',
-        nombre:'Anakin',
-        descripcion: 'Heroe copado'
-    },
-    {
-        url:'./img/batman.jpg',
-        nombre:'Batman',
-        descripcion: 'Heroe copado'
-    },
-    {
-        url:'./img/ahsoka.jpg',
-        nombre:'Ahsoka',
-        descripcion: 'Heroe copado'
-    },
-]
-
-class PeliculasPop extends Component{
+class PeliculasPop extends Component {
     constructor(props){
         super(props)
         this.state = {
-            valor:1
-        }
+            esFavorito: false,
+            texto:'Ver mas',
+            clase:'hidden'
+          }
     }
+
+
+    anhadirFav(id){
+        let storage = localStorage.getItem('favoritos')
+
+        if(storage === null){
+            let idEnArray = [id]
+            let arrayAString = JSON.stringify(idEnArray)
+            localStorage.setItem('favoritos', arrayAString)
+      
+          } else {
+            let deStringAArray = JSON.parse(storage) 
+            deStringAArray.push(id)
+            let arrayAString = JSON.stringify(deStringAArray)
+            localStorage.setItem('favoritos', arrayAString)
+          }
+      
+          this.setState({
+            esFavorito: true
+          })   
+    }
+
+  sacarFav(id){
+    let storage = localStorage.getItem('favoritos')
+    let storageAArray = JSON.parse(storage)
+    let filtro = storageAArray.filter((elm)=> elm !== id)
+    let filtroAString = JSON.stringify(filtro)
+    localStorage.setItem('favoritos', filtroAString)
+
+    this.setState({
+      esFavorito: false
+    })
+  }
+
+  cambiarTexto(){
+    if(this.state.texto === 'Ver mas'){
+        this.setState({
+            texto: 'Ver menos',
+            clase: 'show'
+        })
+    } else {
+        this.setState({
+            texto: 'Ver mas',
+            clase:'hidden'
+        })
+    }
+}
 
     render(){
         return(
-            <div className="peliculas">
-                {
-                    peliculas.map((pelicula, idx)=> 
-                    <ContenedorPeliculasPop
-                        url={pelicula.url}
-                        nombre={pelicula.nombre}
-                        descripcion={pelicula.descripcion}
-                        key={pelicula.nombre + idx}
-                    />)
-                }
-               
+            <>
+            <div
+             className="texto">
+                <img src={this.props.url} alt="" />
+                <h4>{this.props.nombre}</h4>
+                <p
+                className={this.state.clase}
+                >{this.props.descripcion}</p>
+                
             </div>
+            <div>
+            <Link to={`/unapelicula/id/${this.props.info.id}`}>
+              <img src={this.props.info.poster_path} alt=""/>
+              <h1>{this.props.info.original_title}</h1>
+            </Link>
+            {
+              this.state.esFavorito ?
+              <button onClick={()=> this.sacarFav(this.props.info.id)}> Sacar de Favoritos</button>
+              :
+              <button onClick={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
+            } 
+             <button
+                onClick={()=> this.cambiarTexto()}
+                >{this.state.texto}</button>
+                
+            </div>
+            </>
         )
     }
 }
-           
-               //* <article className='pelicula-card'>
-            //*         <div>
-         //*
-            //*             <p>{props.original_title}</p>
-               //*          <p>{props.descripcion}</p>
-                    
-                  //*       <button>Ver mas</button>
-                     //*    <button>Ir a detalle</button>
-                        //* <button>Agregar a favoritos</button>
-                     //*</div>
-              //*   </article>
-
-            
-
-
 
 export default PeliculasPop
-

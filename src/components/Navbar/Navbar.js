@@ -1,7 +1,26 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './styles.css';
 
-const opciones=['Home', 'Favoritos ',  'Ver Todas']
+const opciones=[ 
+    {
+        nombre: 'Home',
+        path: '/'
+    },
+    {
+        nombre:'Favoritos',
+        path:'/favoritos'
+    },
+    {
+        nombre: 'Ver Todas',
+        path:'/vertodas'
+    },
+    {
+        nombre: 'Buscar por título',
+        path:'/buscador'
+    }
+    
+]
 
 function Navbar(){
 return(
@@ -10,10 +29,13 @@ return(
                 <img src='./img/logo2.jpg' alt=''/>
         </ul>
         <ul className='main-nav'>
-           {opciones.map((opcion, idx)=>
-           <li key={opcion + idx}>
-               {opcion}
-           </li>)}
+        {
+                opciones.map((elm, idx) => <li>
+                    <Link to={elm.path}>
+                        {elm.nombre}
+                    </Link>
+                </li>)
+            }
         </ul>
     </nav>
 )

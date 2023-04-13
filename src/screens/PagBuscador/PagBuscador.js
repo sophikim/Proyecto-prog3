@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
+import Buscador from '../../components/Buscador/Buscador';
+import DetallePeli from '../DetallesPeli/DetallesPeli';
 
-class Buscador extends Component{
+class PagBuscador extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -34,11 +36,15 @@ class Buscador extends Component{
                 {this.state.peliculas===''?
                 <h3>Cargando</h3>:
                 <h3>{this.state.peliculas} </h3>}
-                <p>BUSCADOR</p>
+<Buscador 
+        actualizador={(data) => this.actualizadorDeEstado(data)}
+        fuente = {this.state.backup} 
+        />
+        <DetallePeli peliculas={this.state.peliculas} />
             </div>
             </>
         )
     }
 }
 
-export default Buscador;
+export default PagBuscador;
