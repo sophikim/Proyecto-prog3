@@ -1,6 +1,8 @@
 import React from 'react';
 import './styles.css';
 
+const opciones=['Home', 'Favoritos ',  'Ver Todas']
+
 function Navbar(){
 return(
     <nav>
@@ -8,9 +10,10 @@ return(
                 <img src='./img/logo2.jpg' alt=''/>
         </ul>
         <ul className='main-nav'>
-            <li>Home</li>
-            <li>Favoritos</li>
-            <li>Ver Todas</li>
+           {opciones.map((opcion, idx)=>
+           <li key={opcion + idx}>
+               {opcion}
+           </li>)}
         </ul>
     </nav>
 )

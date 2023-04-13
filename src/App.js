@@ -9,6 +9,7 @@ import Buscador from './screens/Buscador/Buscador';
 //import DetallesSerie from './screens/DetallesSerie/DetallesSerie';
 import {Route, Switch} from 'react-router-dom'
 import Home from './screens/Home/Home'
+//import PeliculasPop from './components/PeliculasPop/PeliculasPop';
 
 function App() {
   return (
