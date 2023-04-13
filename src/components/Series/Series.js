@@ -60,21 +60,18 @@ class Series extends Component{
 render(){
     return(
         <>
-         <div
-             className="texto">
-                <img src={this.props.url} alt="" />
-                <h4>{this.props.nombre}</h4>
-                <p
-                className={this.state.clase}
-                >{this.props.descripcion}</p>
-                
+            <div className="series">
+                <h2>{this.props.datosSeries.original_name}</h2>
+                <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosSeries.poster_path}`} alt="" />
+                <p className={this.state.clase}>{this.props.datosSeries.overview}</p>
             </div>
+
             <div>
             {
               this.state.esFavorito ?
               <button onClick={()=> this.sacarFav(this.props.info.id)}> Sacar de Favoritos</button>
               :
-              <button onClic={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
+              <button onClick={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
             } 
              <button
                 onClick={()=> this.cambiarTexto()}

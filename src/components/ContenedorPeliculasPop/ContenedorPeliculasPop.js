@@ -5,7 +5,7 @@ class ContenedorPeliculasPop extends Component{
     constructor(props){
         super(props)
         this.state={
-            peliculas: []
+            peliculasPop: []
         }
     }
 
@@ -23,17 +23,19 @@ render(){
             <div className='Pelis'>
             <img src={this.props} alt=''/>
                 {
-                    this.state.peliculas.length <= 0 ?
-                    <h2>Trayendo peliculas...</h2> :
-                    this.state.peliculas.map(titulo => <article>
-                        <PeliculasPop info={titulo} />
-                    </article>)
+                    this.state.peliculasPop.map((unaPelicula, idx) => <PeliculasPop key={unaPelicula.name + idx} datosPeliculas={unaPelicula} />)
+
+                   // this.state.peliculas.length <= 0 ?
+                    //<h2>Trayendo peliculas...</h2> :
+                    //this.state.peliculas.map(titulo => <article>
+                     //   <PeliculasPop info={titulo} />
+                   // </article>)
                 }
             </div>
-            
+
             </>
         )
     }
 }
 
-export default ContenedorPeliculasPop;
+export default ContenedorPeliculasPop

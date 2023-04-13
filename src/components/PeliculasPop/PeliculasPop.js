@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 
 class PeliculasPop extends Component {
     constructor(props){
@@ -61,29 +60,20 @@ class PeliculasPop extends Component {
     render(){
         return(
             <>
-            <div
-             className="texto">
-                <img src={this.props.url} alt="" />
-                <h4>{this.props.nombre}</h4>
-                <p
-                className={this.state.clase}
-                >{this.props.descripcion}</p>
-                
+            <div className="pelis">
+                <h2>{this.props.datosPeliculas.original_title}</h2>
+                <img src= {`https://image.tmdb.org/t/p/w342/${this.props.datosPeliculas.poster_path}`} alt="" />
+                <p className={this.state.clase}>{this.props.datosPeliculas.overview}</p>
             </div>
+
             <div>
-            <Link to={`/unapelicula/id/${this.props.info.id}`}>
-              <img src={this.props.info.poster_path} alt=""/>
-              <h1>{this.props.info.original_title}</h1>
-            </Link>
             {
               this.state.esFavorito ?
               <button onClick={()=> this.sacarFav(this.props.info.id)}> Sacar de Favoritos</button>
               :
               <button onClick={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
             } 
-             <button
-                onClick={()=> this.cambiarTexto()}
-                >{this.state.texto}</button>
+              <button onClick={()=> this.cambiarTexto()}>{this.state.texto}</button>
                 
             </div>
             </>

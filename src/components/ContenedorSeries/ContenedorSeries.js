@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-//import Series from '../Series/Series';
+import Series from '../Series/Series';
 
 class ContenedorSeries extends Component{
     constructor(props){
@@ -10,7 +10,7 @@ class ContenedorSeries extends Component{
     }
 
     componentDidMount(){
-        fetch('https://api.themoviedb.org/3/tv?api_key=7f5386f01dbfdcd8cd1afd5b805e09fc')
+        fetch('https://api.themoviedb.org/3/tv/popular?api_key=7f5386f01dbfdcd8cd1afd5b805e09fc')
         .then(res => res.json())
         .then(data => this.setState({
             series: data.results
@@ -20,11 +20,12 @@ class ContenedorSeries extends Component{
     render(){
         return(
             <>
-             <div className='Series'>
-            <img src={this.props} alt=''/>
-             
-             
-        </div>
+                <div className='contenedorSeries'>
+                    <img src={this.props} alt=''/>
+                    {
+                        this.state.series.map((unaSerie, idx) => <Series key={unaSerie.name + idx} datosSeries={unaSerie} />)
+                    }
+                </div>
             </>
         )
     }
