@@ -26,15 +26,27 @@ class PeliculasPop extends Component {
       
           this.setState({
             esFavorito: true
-          })
-        
+          })   
     }
+
+
+  sacarFav(id){
+    let storage = localStorage.getItem('favoritos')
+    let storageAArray = JSON.parse(storage)
+    let filtro = storageAArray.filter((elm)=> elm !== id)
+    let filtroAString = JSON.stringify(filtro)
+    localStorage.setItem('favoritos', filtroAString)
+
+    this.setState({
+      esFavorito: false
+    })
+  }
 
     render(){
         return(
             <div>
             <Link to={`/unapelicula/id/${this.props.info.id}`}>
-              <img src={this.props.info.poster_path} alt="nn"/>
+              <img src={this.props.info.poster_path} alt=""/>
               <h1>{this.props.info.original_title}</h1>
             </Link>
             {
