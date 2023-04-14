@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Buscador extends Component {
     constructor(props){
@@ -13,38 +14,31 @@ class Buscador extends Component {
         event.preventDefault()
     }
 
-    metodoQueFiltra(texto, arrayFuente){
-        let filtrado = arrayFuente.filter((elm) => elm.name.toLowerCase().includes(texto.toLowerCase()))
-        return filtrado
-    }
 
     guardarValor(event){
         this.setState(
             {
                 valorInput:event.target.value
-            }, () => {
-                let filtro = this.metodoQueFiltra(this.state.valorInput, this.props.fuente)
-                this.props.actualizador(filtro)
             }
-            
-        )
-    }
-
-    metodoQueEnvia(){
-        console.log('Enviamos la info')
-    }
+        );
+    };
 
     render() {
         return (
-        <form onSubmit={(event)=> this.evitarSubmit(event)}>
-            <div>
-                <label>Busca lo que quieras</label>
-            </div>
-            <div>
-                <input onChange={(event)=> this.guardarValor(event)} value={this.state.valorInput}/>
-            </div>
-            <button onClick={() => this.metodoQueEnvia()}>Enviar</button> 
-        </form>
+            <>
+                <form className='buscador' onSubmit={(event)=> this.evitarSubmit(event)}>
+                <input className="buscador-input" type='text' placeholder='Buscar' onChange={(event) => this.guardarValor(event)} value={this.state.valorInput}/>
+                {
+                    this.state.valorInput ?
+                    <Link to={`/resultados/${this.state.valorInput}`}>
+                    <input className="buscador-submit"  type='submit' value='enviar'  />
+                    </Link>
+                    :
+                    <input className="buscador-submit" type='submit' value='enviar' />
+                }
+                </form>
+            </>
+        
         )
     }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ContenedorPeliculasPop from '../../components/ContenedorPeliculasPop/ContenedorPeliculasPop'
 import ContenedorSeries from '../../components/ContenedorSeries/ContenedorSeries'
 import Buscador from '../../components/Buscador/Buscador'
+import {Link} from 'react-router-dom'
 
 class Home extends Component {
   render() {
@@ -10,9 +11,11 @@ class Home extends Component {
         <main>
           <Buscador/>
           <h1 className='seccion'>Peliculas Más Populares</h1>
-          <ContenedorPeliculasPop/>
+            <Link to='/peliculas/verTodas'>Ver Todas</Link>
+            <ContenedorPeliculasPop/>
           <h1 className='seccion'>Series</h1>
-          <ContenedorSeries/>
+            <Link to='/series/verTodas'>Ver Todas</Link>
+            <ContenedorSeries/>
         </main>
       </>
     )

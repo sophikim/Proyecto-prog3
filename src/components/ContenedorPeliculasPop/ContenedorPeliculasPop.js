@@ -23,13 +23,6 @@ render(){
         <section className='pelicula-card'>
             {
                     this.state.peliculasPop.map((unaPelicula, idx) => <PeliculasPop key={unaPelicula.name + idx} datosPeliculas={unaPelicula} />)
-
-                   // this.state.peliculas.length <= 0 ?
-                    //<h2>Trayendo peliculas...</h2> :
-                    //this.state.peliculas.map(titulo => <article>
-                     //   <PeliculasPop info={titulo} />
-                   // </article>)<div className='pelicula-card'>
-                   //<img src={this.props} alt=''/>
                 }
            </section>
         )

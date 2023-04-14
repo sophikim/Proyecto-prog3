@@ -7,15 +7,18 @@ return(
     <nav>
         <div>
         <ul className='logo'>
-                <Link to='/'>
-                    <img src='./img/logo2.jpg' alt=''/>
-                </Link>
-                
-        </ul>
-        <ul className='main-nav'>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/favoritos'>Favoritos</Link></li>
-            <li><Link to='/verTodas'>Ver Todas</Link> </li>
+            <li>
+                <Link to='/'> <img src='./img/logo2.jpg' alt=''/></Link>
+            </li> 
+            <li>
+                <Link to='/'>Home</Link>
+            </li>
+            <li> 
+                <Link to="/peliculas/favoritos">Favoritos</Link>
+            </li>
+            <li>
+                <Link to='/peliculas/verTodas'>Ver Todas</Link> 
+            </li>
         </ul>
         </div>
         

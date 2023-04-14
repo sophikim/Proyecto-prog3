@@ -62,22 +62,16 @@ class PeliculasPop extends Component {
     render(){
         return(   
               <>
-            
-                  <div className="pelis">
-                    <h2>{this.props.datosPeliculas.title}</h2>
-                  </div>
 
             <article className='peliculas-card'>
 
                 <h2 className='titulo'>{this.props.datosPeliculas.original_title}</h2>
                 <figure className='figuraImagen'>
-                <img src= {`https://image.tmdb.org/t/p/w342/${this.props.datosPeliculas.poster_path}`} alt="" />
+                  <img src= {`https://image.tmdb.org/t/p/w342/${this.props.datosPeliculas.poster_path}`} alt="" />
                 </figure>
                 <div>
-                <p className={this.state.clase}>{this.props.datosPeliculas.overview}</p>
-
-            </div>
-
+                  <p className={this.state.clase}>{this.props.datosPeliculas.overview}</p>
+                </div>
 
             <div>
             {
@@ -92,7 +86,7 @@ class PeliculasPop extends Component {
 
             <div className='button'>
                   <Link to={`/peliculas/detalle/id/${this.props.datosPeliculas.id}`}>
-                      <button>Ir al detalle de la pelicula</button>
+                      <button>Ir a detalle</button>
                   </Link>
                    
                 </div>
