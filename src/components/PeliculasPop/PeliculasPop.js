@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 
 class PeliculasPop extends Component {
     constructor(props){
@@ -61,9 +62,14 @@ class PeliculasPop extends Component {
         return(
             <>
             <div className="pelis">
+                
+              <Link to={`/detallespeli/id/${this.props.info.id}`}>
                 <h2>{this.props.datosPeliculas.original_title}</h2>
                 <img src= {`https://image.tmdb.org/t/p/w342/${this.props.datosPeliculas.poster_path}`} alt="" />
                 <p className={this.state.clase}>{this.props.datosPeliculas.overview}</p>
+
+              
+              </Link>
             </div>
 
             <div>

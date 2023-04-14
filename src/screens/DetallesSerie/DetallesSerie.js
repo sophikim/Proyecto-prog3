@@ -15,7 +15,7 @@ export default class DetalleSerie extends Component {
 //nuevo estado del componente donde vamos a traer la info de tmdb
 
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/tv/${tv_id}?api_key=c9533621e81789759a632a472c946937&language=en-US`)
+        fetch(`https://api.themoviedb.org/3/tv/${this.state.id}?api_key=c9533621e81789759a632a472c946937&language=en-US`)
         .then(resp => resp.json())
         .then(data => this.setState({
             serie:data
