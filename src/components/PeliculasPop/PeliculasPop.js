@@ -85,7 +85,7 @@ class PeliculasPop extends Component {
             </div>
 
             <div className='button'>
-                  <Link to={`/peliculas/detalle/id/${this.props.datosPeliculas.id}`}>
+                  <Link to={`/detallespeli/id/${this.props.datosPeliculas.id}`}>
                       <button>Ir a detalle</button>
                   </Link>
                    
