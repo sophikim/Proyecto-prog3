@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Buscador extends Component {
     constructor(props){
@@ -49,4 +49,4 @@ class Buscador extends Component {
     }
 }
 
-export default Buscador
+export default Buscador;

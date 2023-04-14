@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import React, {Component} from 'react';
 
 class Series extends Component{
@@ -66,9 +66,7 @@ render(){
                     <h2>{this.props.datosSeries.original_name}</h2>
                     <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosSeries.poster_path}`} alt="" />
                     <p className={this.state.clase}>{this.props.datosSeries.overview}</p>
-                
 
-                
             </div>
 
             <div>

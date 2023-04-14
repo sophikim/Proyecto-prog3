@@ -1,23 +1,23 @@
 import React,{Component} from 'react';
 import Buscador from '../../components/Buscador/Buscador';
-import DetallePeli from '../DetallesPeli/DetallesPeli';
+import ResultadosBuscador from '../../components/ResultadosBuscador/ResultadosBuscador';
 
 class PagBuscador extends Component{
     constructor(props){
         super(props);
         this.state={
-            inputValue:'',
             peliculas: [],
-            backup:[]
+            resultadoBusqueda: this.props.match.params.title,
+            loading:true,
         }
     }
 
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${this.state.inputValue}&api_key=7f5386f01dbfdcd8cd1afd5b805e09fc`)
+        fetch(`https://api.themoviedb.org/3/search/multi?api_key=7f5386f01dbfdcd8cd1afd5b805e09fc&language=en-US&query=${this.state.palabraEncontrada}&page=1&include_adult=true`)
         .then(response=>response.json())
         .then(data=> this.setState({
             peliculas: data.results,
-            backup:data.results
+            loading: false
         }))
         .catch(error=>console.log(error))
     }
@@ -29,18 +29,17 @@ class PagBuscador extends Component{
     render(){
         return(
             <>
-            <form onSubmit={(event)=> this.evitarSubmit(event)}>
-                <button>Enviar</button>
-            </form>
-            <div>
-                {this.state.peliculas===''?
-                <h3>Cargando</h3>:
-                <h3>{this.state.peliculas} </h3>}
-<Buscador 
-        actualizador={(data) => this.actualizadorDeEstado(data)}
-        fuente = {this.state.backup} 
-        />
-        <DetallePeli peliculas={this.state.peliculas} />
+            <div>      
+        <Buscador/>
+        <h1>Estos son los Resultados</h1>
+        <section>
+            {
+                this.state.peliculas.length !== 0 ?
+                    this.state.peliculas.map((unaPelicula, idx) => <ResultadosBuscador key={unaPelicula.title + idx} datosResultados={unaPelicula}/>)
+                    :
+                    <h1>No se encontró nada</h1>}
+        </section>
+
             </div>
             </>
         )

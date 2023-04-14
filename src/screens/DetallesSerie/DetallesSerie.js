@@ -32,7 +32,7 @@ export default class DetalleSerie extends Component {
         this.state.serie === '' ?
         <h1>Cargando..</h1> :
         <div>
-            <img src={this.state.serie.poster_path} />
+            <img src={this.state.serie.poster_path} alt=''/>
             <h1>{this.state.serie.name}</h1>
             <p>{this.state.serie.overview}</p>
             <p>{this.state.serie.air_date}</p>
