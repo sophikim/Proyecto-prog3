@@ -8,7 +8,7 @@ class PeliculasPop extends Component {
         this.state = {
             esFavorito: false,
             texto:'Ver mas',
-            clase:'ocultar'
+            clase:'hidden'
           }
     }
 
@@ -54,7 +54,7 @@ class PeliculasPop extends Component {
     } else {
         this.setState({
             texto: 'Ver mas',
-            clase:'ocultar'
+            clase:'hidden'
         })
     }
 }
@@ -64,32 +64,32 @@ class PeliculasPop extends Component {
               <>
 
             <article className='peliculas-card'>
-
-                <h2 className='titulo'>{this.props.datosPeliculas.original_title}</h2>
-                <figure className='figuraImagen'>
+              <div className='card-pelicula'>
                   <img src= {`https://image.tmdb.org/t/p/w342/${this.props.datosPeliculas.poster_path}`} alt="" />
-                </figure>
-                <div>
-                  <p className={this.state.clase}>{this.props.datosPeliculas.overview}</p>
-                </div>
+              </div>
 
-            <div>
-            {
-              this.state.esFavorito ?
-              <button onClick={()=> this.sacarFav(this.props.info.id)}> Sacar de Favoritos</button>
-              :
-              <button onClick={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
-            } 
-              <button onClick={()=> this.cambiarTexto()}>{this.state.texto}</button>
-                
-            </div>
+              <div>
+                <h2 className='titulo'>{this.props.datosPeliculas.original_title}</h2>
+                <p className={this.state.clase}>{this.props.datosPeliculas.overview}</p>
+              </div>
 
-            <div className='button'>
-                  <Link to={`/peliculas/detalle/id/${this.props.datosPeliculas.id}`}>
-                      <button>Ir a detalle</button>
-                  </Link>
+              <div>
+                {
+                  this.state.esFavorito ?
+                  <button onClick={()=> this.sacarFav(this.props.info.id)}> Sacar de Favoritos</button>
+                  :
+                  <button onClick={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
+                } 
+                  <button onClick={()=> this.cambiarTexto()}>{this.state.texto}</button>
+                    
+              </div>
+
+              <div className='button'>
+                <Link to={`/peliculas/detalle/id/${this.props.datosPeliculas.id}`}>
+                    <button>Ir a detalle</button>
+                </Link>
                    
-                </div>
+              </div>
             </article>
 
             </>

@@ -14,11 +14,12 @@ nav{
     color: rgb(205, 205, 205);
 }
 
-nav ul{
+li{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    margin-right: 60px;
 }
 .main-nav{
     margin-right: 60px;
@@ -34,7 +35,7 @@ nav ul{
     text-align: center;
 }
 
-.logo img{
+.logo {
     border-radius: 70%;
     display: flex;
     flex-wrap: wrap;

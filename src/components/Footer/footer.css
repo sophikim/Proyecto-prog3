@@ -1,0 +1,16 @@
+.style{
+    background-color: #233666;
+    padding: 40px 0;
+    color: rgb(205, 205, 205);
+    text-align: center;
+    position: inherit;
+    bottom: 0;
+    width: 100%;
+
+}
+
+
+li{
+
+    align-items: center;
+}

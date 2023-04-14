@@ -1,5 +1,6 @@
-
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
+import './Series.css'
 
 class Series extends Component{
     constructor(props){
@@ -61,25 +62,33 @@ class Series extends Component{
 render(){
     return(
         <>
-            <div className="series">
-            
-                    <h2>{this.props.datosSeries.original_name}</h2>
+            <article className='serie-card'>
+                <div className='card-serie'>
                     <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosSeries.poster_path}`} alt="" />
+                </div>
+
+                <div>
+                    <h2 className='titulo'>{this.props.datosSeries.original_name}</h2>
                     <p className={this.state.clase}>{this.props.datosSeries.overview}</p>
+                </div>
 
-            </div>
+                <div>
+                {
+                this.state.esFavorito ?
+                <button onClick={()=> this.sacarFav(this.props.info.id)}> Sacar de Favoritos</button>
+                :
+                <button onClick={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
+                } 
+                <button onClick={()=> this.cambiarTexto()}>{this.state.texto}</button>
+                </div>
 
-            <div>
-            {
-              this.state.esFavorito ?
-              <button onClick={()=> this.sacarFav(this.props.info.id)}> Sacar de Favoritos</button>
-              :
-              <button onClick={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
-            } 
-             <button
-                onClick={()=> this.cambiarTexto()}
-                >{this.state.texto}</button>
-            </div>
+                <div className='button'>
+                  <Link to={`/series/detalle/id/${this.props.datosSeries.id}`}>
+                      <button>Ir a detalle</button>
+                  </Link>
+                   
+                </div>
+            </article>
         </>
     )
 }

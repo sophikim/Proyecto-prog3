@@ -1,6 +1,11 @@
-.contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
+.verTodas{
+  color: rgb(0, 0, 0);
+  margin-left: 45%;
+}
+
+.seccion{
+  background-color: #2336668e;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
