@@ -12,32 +12,34 @@ class Favoritos extends Component {
     }
 
     componentDidMount(){
-        let storage = localStorage.getItem('favoritos')
+        let favorito = [];
+        let Storage = localStorage.getItem('favoritos')
+        
         if(storage !== null){
-            let storageAArray = JSON.parse(storage)
-            Promise.all(
-                storageAArray.map(id => {
-                    return(
-                        fetch(`https://api.themoviedb.org/3/movie/${id}`)
-                        .then(resp => resp.json())
-                        .then(data => data)
-                    )
-                })
+            favorito = SON.parse(Storage) /
+            
+            favorito.forEach(idFavorito => {
+                fetch('https://api.themoviedb.org/3/movie/${unIdFavorito}?api_key=7f5386f01dbfdcd8cd1afd5b805e09fc')
+                .then(res => res.json())
+                .then(data => this.setState({ favoritos: this.state.favoritos.concat(data) }))
+                .catch(e => console.log(e))
+            }
             )
-            .then(data => this.setState({
-                favoritos: data
-            }))
-            .catch(err => console.log(err))
-
-
         }
     }
     
-  render() {
-    return (
-      <ContenedorPeliculasPop peliculas={this.state.favoritos}/>
+render(){
+    return(
+        <>
+        <h2 className='favoritas'>Mis favoritas</h2>
+        <section className='contenedor'>
+            {
+                this.state.favoritas.map( (unPelicula, idx) => <Card key={unPelicula.original_title+idx} datosPelicula={unPelicula}/>)
+            }
+        </section>
+        </>
     )
-  }
+}
 }
 
 export default Favoritos;

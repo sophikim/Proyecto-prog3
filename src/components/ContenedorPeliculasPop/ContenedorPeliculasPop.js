@@ -21,7 +21,7 @@ componentDidMount(){
 render(){
     return(
         <section className='pelicula-card'>
-            {
+                {
                     this.state.peliculasPop.map((unaPelicula, idx) => <PeliculasPop key={unaPelicula.name + idx} datosPeliculas={unaPelicula} />)
                 }
            </section>

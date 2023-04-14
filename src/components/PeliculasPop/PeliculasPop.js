@@ -76,9 +76,9 @@ class PeliculasPop extends Component {
             <div>
             {
               this.state.esFavorito ?
-              <button onClick={()=> this.sacarFav(this.props.info.id)}> Sacar de Favoritos</button>
+              <button onClick={()=> this.sacarFav(this.props.datosPeliculas.id)}> Sacar de Favoritos</button>
               :
-              <button onClick={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
+              <button onClick={()=>this.anhadirFav(this.props.datosPeliculas.id)}> Añadir a Favoritos</button>
             } 
               <button onClick={()=> this.cambiarTexto()}>{this.state.texto}</button>
                 
