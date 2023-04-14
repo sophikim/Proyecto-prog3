@@ -20,7 +20,7 @@ class ContenedorSeries extends Component{
     render(){
         return(
             <>
-                <div className='contenedorSeries'>
+                <div className='series-card'>
                     <img src={this.props} alt=''/>
                     {
                         this.state.series.map((unaSerie, idx) => <Series key={unaSerie.name + idx} datosSeries={unaSerie} />)

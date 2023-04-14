@@ -81,12 +81,6 @@ render(){
                 >{this.state.texto}</button>
             </div>
         </>
-        /*<div>
-            { this.state.titulo === '' ?
-                <h2>Trayendo peliculas...</h2> :
-                <h2>{this.state.titulo}</h2>
-    }
-        </div>*/
     )
 }
 }

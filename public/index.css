@@ -80,15 +80,14 @@ nav ul{
 
 .pelicula-card{
     width: 32%;
-    border-radius: 4px;
-    background-color: rgb(255, 255, 255);
-    padding: 10px 30px;
+    padding: 20px ;
+    margin: 20px;
+    border-radius: 8px;
     text-transform: capitalize;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction:row;
     align-items: center;
-    justify-content: space-around;
+    text-align: center;
 }
 
 /* Series */
@@ -104,18 +103,17 @@ nav ul{
 .series-general article{
     margin-bottom: 20px;
 }
-.serie-card{
-    width: 32%;
-    border-radius: 4px;
-    background-color: #fff;
-    padding: 10px 30px;
-    text-transform: capitalize;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
+.series-card{
+        width: 32%;
+        padding: 10px ;
+        margin: 20px;
+        border-radius: 8px;
+        text-transform: capitalize;
+        display: flex;
+        flex-direction:row;
+        align-items: center;
+        text-align: center;
+      }
 
 
 /* Footer */

@@ -1,5 +1,7 @@
+import { series } from 'async'
 import React, { Component } from 'react'
 import ContenedorPeliculasPop from '../../components/ContenedorPeliculasPop/ContenedorPeliculasPop'
+import ContenedorSeries from '../../components/ContenedorSeries/ContenedorSeries'
 
 class Favoritos extends Component {
     constructor(props){
