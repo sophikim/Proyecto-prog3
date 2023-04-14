@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import './PeliculasPop.css'
 
 class PeliculasPop extends Component {
     constructor(props){
@@ -7,7 +8,7 @@ class PeliculasPop extends Component {
         this.state = {
             esFavorito: false,
             texto:'Ver mas',
-            clase:'hidden'
+            clase:'ocultar'
           }
     }
 
@@ -53,24 +54,23 @@ class PeliculasPop extends Component {
     } else {
         this.setState({
             texto: 'Ver mas',
-            clase:'hidden'
+            clase:'ocultar'
         })
     }
 }
 
     render(){
         return(
-            <>
-            <div className="pelis">
-                
-              <Link to={`/detallespeli/id/${this.props.info.id}`}>
-                <h2>{this.props.datosPeliculas.original_title}</h2>
-                <img src= {`https://image.tmdb.org/t/p/w342/${this.props.datosPeliculas.poster_path}`} alt="" />
-                <p className={this.state.clase}>{this.props.datosPeliculas.overview}</p>
+            <article className='peliculas-card'>
 
-              
-              </Link>
-            </div>
+                <h2 className='titulo'>{this.props.datosPeliculas.original_title}</h2>
+                <figure className='figuraImagen'>
+                <img src= {`https://image.tmdb.org/t/p/w342/${this.props.datosPeliculas.poster_path}`} alt="" />
+                </figure>
+                <div>
+                <p className={this.state.clase}>{this.props.datosPeliculas.overview}</p>
+              </div> 
+                 
 
             <div>
             {
@@ -82,7 +82,14 @@ class PeliculasPop extends Component {
               <button onClick={()=> this.cambiarTexto()}>{this.state.texto}</button>
                 
             </div>
-            </>
+
+            <div className='button'>
+                  <Link to={`/peliculas/detalle/id/${this.props.datosPeliculas.id}`}>
+                      <button>Ir al detalle de la pelicula</button>
+                  </Link>
+                   
+                </div>
+            </article>
         )
     }
 }

@@ -9,7 +9,6 @@ class Home extends Component {
       <>
         <main>
           <h1 className='seccion'>Peliculas Más Populares</h1>
-
           <ContenedorPeliculasPop/>
           <h1 className='seccion'>Series</h1>
           <ContenedorSeries/>

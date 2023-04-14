@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, {Component} from 'react';
+import './Series.css'
+
 
 class Series extends Component{
     constructor(props){
@@ -7,7 +9,7 @@ class Series extends Component{
         this.state={
             esFavorito: false,
             texto:'Ver mas',
-            clase:'hidden'
+            clase:'ocultar'
         }
     }
 
@@ -53,23 +55,24 @@ class Series extends Component{
         } else {
             this.setState({
                 texto: 'Ver mas',
-                clase:'hidden'
+                clase:'ocultar'
             })
         }
     }
 
 render(){
     return(
-        <>
-            <div className="series">
-            
-                    <h2>{this.props.datosSeries.original_name}</h2>
-                    <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosSeries.poster_path}`} alt="" />
-                    <p className={this.state.clase}>{this.props.datosSeries.overview}</p>
-                
+           
+           <article className='serie-card'>
 
-                
-            </div>
+                <h2 className='titulo'>{this.props.datosSeries.original_title}</h2>
+                <figure className='figuraImagen'>
+                <img src= {`https://image.tmdb.org/t/p/w342/${this.props.datosSeries.poster_path}`} alt="" />
+                </figure>
+                <div>
+                <p className={this.state.clase}>{this.props.datosSeries.overview}</p>
+              </div> 
+                 
 
             <div>
             {
@@ -78,19 +81,19 @@ render(){
               :
               <button onClick={()=>this.anhadirFav(this.props.info.id)}> Añadir a Favoritos</button>
             } 
-             <button
-                onClick={()=> this.cambiarTexto()}
-                >{this.state.texto}</button>
+              <button onClick={()=> this.cambiarTexto()}>{this.state.texto}</button>
+                
             </div>
-        </>
-        /*<div>
-            { this.state.titulo === '' ?
-                <h2>Trayendo peliculas...</h2> :
-                <h2>{this.state.titulo}</h2>
+
+            <div className='button'>
+                  <Link to={`/peliculas/detalle/id/${this.props.datosSeries.id}`}>
+                      <button>Ir al detalle de la pelicula</button>
+                  </Link>
+                   
+                </div>
+            </article>
+        )
     }
-        </div>*/
-    )
-}
 }
 
 export default Series
