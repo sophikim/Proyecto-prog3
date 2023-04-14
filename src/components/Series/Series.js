@@ -83,7 +83,7 @@ render(){
                 </div>
 
                 <div className='button'>
-                  <Link to={`/series/detalle/id/${this.props.datosSeries.id}`}>
+                  <Link to={`detallesserie/id/${this.props.datosSeries.id}`}>
                       <button>Ir a detalle</button>
                   </Link>
                    

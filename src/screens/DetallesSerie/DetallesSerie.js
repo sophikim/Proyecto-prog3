@@ -17,7 +17,7 @@ class DetalleSerie extends Component {
   //`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=c9533621e81789759a632a472c946937&language=en-US`
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/tv/${this.state.tv_id}?api_key=c9533621e81789759a632a472c946937&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/tv/${this.state.id}?api_key=c9533621e81789759a632a472c946937&language=en-US`)
       .then(resp => resp.json())
       .then(data => this.setState(
         { serie: data }
@@ -39,12 +39,13 @@ class DetalleSerie extends Component {
             <h1>Cargando..</h1> :
             <div>
               <img src={`https://image.tmdb.org/t/p/w342/${this.state.serie.poster_path}`} />
-              <h1>{this.state.serie.title}</h1>
+              <h1>{this.state.serie.name}</h1>
               <p>{this.state.serie.overview}</p>
-              <p>lanzamiento: {this.state.serie.air_date}</p>
-              <p>duración: {this.state.serie.number_of_episodes} minutos</p>
-              <p>calificación promedio: {this.state.serie.vote_average}</p>
+              <p>lanzamiento: {this.state.serie.first_air_date}</p>
+              <p>duración: {this.state.serie.number_of_episodes} capítulos</p>
+              <p>calificación : {this.state.serie.vote_average}</p>
 
+              
 
 
 
