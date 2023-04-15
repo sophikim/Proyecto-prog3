@@ -14,7 +14,7 @@ return(
                 <Link to='/'>Home</Link>
             </li>
             <li> 
-                <Link to="/peliculas/favoritos">Favoritos</Link>
+                <Link to='/peliculas/favoritos'>Favoritos</Link>
             </li>
             <li>
                 <Link to='/peliculas/verTodas'>Ver Todas</Link> 
