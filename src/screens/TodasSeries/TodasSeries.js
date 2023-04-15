@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import ContenedorPeliculasPop from '../../components/ContenedorPeliculasPop/ContenedorPeliculasPop'
 import ContenedorSeries from '../../components/ContenedorSeries/ContenedorSeries'
-class VerTodas extends Component {
+class TodasSeries extends Component {
   render() {
     return (
-      <><ContenedorPeliculasPop /><ContenedorSeries /></>
+      <><ContenedorSeries /></>
     )
   }
 }
 
-export default VerTodas
+export default TodasSeries

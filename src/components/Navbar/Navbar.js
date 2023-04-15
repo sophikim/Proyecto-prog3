@@ -17,7 +17,10 @@ return(
                 <Link to='/peliculas/favoritos'>Favoritos</Link>
             </li>
             <li>
-                <Link to='/peliculas/verTodas'>Ver Todas</Link> 
+                <Link to='/TodasPelis'>Todas las peliculas</Link> 
+            </li>
+            <li>
+                <Link to='/TodasSeries'>Todas las series</Link> 
             </li>
         </ul>
         </div>

@@ -4,8 +4,14 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer'
 import Home from './screens/Home/Home'
 import PagBuscador from './screens/PagBuscador/PagBuscador';
+
 //import Favoritos from './screens/Favoritos/Favoritos';
 //import verTodas from
+
+//import Favoritos from 
+import TodasSeries from './screens/TodasSeries/TodasSeries';
+import TodasPelis from './screens/TodasPelis/TodasPelis';
+
 //import NotFound from './components/NotFound/NotFound';
 import NotFound from './screens/NotFound/NotFound';
 import DetallePeli from './screens/DetallesPeli/DetallesPeli';
@@ -21,8 +27,12 @@ function App() {
           <Route path='/' exact={true} component={Home}/>
           <Route path='/pagbuscador' exact={true} component={PagBuscador}/>
           <Route path='/detallespeli/id/:id' component={DetallePeli}/>
-          <Route path='/detallesserie/id/:tv_id' component={DetalleSerie}/>
+          <Route path='/detallesserie/id/:id' component={DetalleSerie}/>
+          <Route path='/TodasSeries' component={TodasSeries}/>
+          <Route path='/TodasPelis' component={TodasPelis}/>
           <Route path=''component={NotFound}/>
+
+
         </Switch>
       <Footer/>
     </>
